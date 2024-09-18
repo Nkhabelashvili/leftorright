@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who is hotter?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container fade-in">
+        <img src="{{ url_for('static', filename='nyu-logo.png') }}" alt="NYU Logo" class="nyu-logo">
+        <h1>Upload a picture of yourself to vote</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('register') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="email">NYU Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="photo">Profile Picture:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="checkbox" id="agree" name="agree" required>
+                <label for="agree">
+                    I agree to the <a href="{{ url_for('privacy_policy') }}" target="_blank">Privacy Policy</a>
+                    and <a href="{{ url_for('terms_of_use') }}" target="_blank">Terms of Use</a>
+                </label>
+            </div>
+            
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>

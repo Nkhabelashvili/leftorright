@@ -1,0 +1,172 @@
+:root {
+    --nyu-violet: #57068c; /* NYU Violet (PMS 2597) */
+    --nyu-violet-light: #8f4bbd; /* Lighter shade of NYU Violet for hover effects */
+    --nyu-violet-dark: #3d026b; /* Darker shade of NYU Violet for contrast */
+    --secondary-color: #f6f6f6; /* Light gray for contrast */
+    --background-color: #ffffff; /* White background */
+    --text-color: #333333; /* Dark gray for text */
+    --error-color: #d9534f; /* Bootstrap's danger color */
+    --success-color: #5cb85c; /* Bootstrap's success color */
+  }
+  
+  body {
+    font-family: 'Gotham', 'Helvetica Neue', Arial, sans-serif; /* Gotham is NYU's official font, fallback to sans-serif */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  h1 {
+    color: var(--nyu-violet);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+  
+  form {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--nyu-violet);
+  }
+  
+  input[type="email"],
+  input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--nyu-violet);
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="email"]:focus,
+  input[type="file"]:focus {
+    outline: none;
+    border-color: var(--nyu-violet-light);
+  }
+  
+  input[type="submit"],
+  button {
+    background-color: var(--nyu-violet);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+  }
+  
+  input[type="submit"]:hover,
+  button:hover {
+    background-color: var(--nyu-violet-light);
+  }
+  
+  .photo-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+  
+  .photo {
+    max-width: 45%;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: 3px solid var(--nyu-violet);
+  }
+  
+  .photo:hover {
+    transform: scale(1.05);
+  }
+  
+  .alert {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  
+  .alert-error {
+    background-color: var(--error-color);
+    color: white;
+  }
+  
+  .alert-success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .nyu-logo {
+    display: block;
+    margin: 0 auto 2rem;
+    max-width: 200px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+  }
+
+  
+.content {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content h2 {
+    color: var(--nyu-violet);
+    margin-top: 1.5rem;
+}
+
+.content ul {
+    padding-left: 1.5rem;
+}
+
+input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+label a {
+    color: var(--nyu-violet);
+    text-decoration: none;
+}
+
+label a:hover {
+    text-decoration: underline;
+}
+
+.photo {
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

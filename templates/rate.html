@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYU Photo Rating</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>NYU Photo Rating</h1>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('rate_photos') }}" method="post">
+            <div class="photo-container">
+                <!-- Left Photo -->
+                <img src="{{ url_for('static', filename=user1.photo_path) }}" alt="Photo 1" class="photo">
+                <!-- Right Photo -->
+                <img src="{{ url_for('static', filename=user2.photo_path) }}" alt="Photo 2" class="photo">
+            </div>
+            
+            <div class="button-container">
+                <!-- Left Vote Button -->
+                <button type="submit" name="choice" value="left">Left</button>
+                <!-- Right Vote Button -->
+                <button type="submit" name="choice" value="right">Right</button>
+            </div>
+            <!-- Hidden Fields to Pass User IDs -->
+            <input type="hidden" name="user1_id" value="{{ user1.id }}">
+            <input type="hidden" name="user2_id" value="{{ user2.id }}">
+        </form>
+        
+
+        <!-- Leaderboard Section -->
+        <h2>Top 3 Photos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Wins</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user, wins in top_users %}
+                <tr>
+                    <td>
+                        <img src="{{ url_for('static', filename=user.photo_path) }}" alt="Top Photo" class="photo">
+                    </td>
+                    <td>{{ wins }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
