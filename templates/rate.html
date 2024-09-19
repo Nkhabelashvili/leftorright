@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="container fade-in">
-        <h1>NYU Photo Rating</h1>
+        <h1>Who's hotter?</h1>
+        <h2 class="secondheader">Left or Right</h2>
+
         
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -39,12 +41,12 @@
         
 
         <!-- Leaderboard Section -->
-        <h2>Top 3 Photos</h2>
+        <h2>Top 3</h2>
         <table>
             <thead>
                 <tr>
                     <th>Photo</th>
-                    <th>Wins</th>
+                    <th>Votes</th>
                 </tr>
             </thead>
             <tbody>
